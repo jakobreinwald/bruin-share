@@ -21,6 +21,12 @@ const postSchema = mongoose.Schema({
         default: '2021',
     },
     quarter: String,
+    yearQuarter:  {
+        type: String,
+        default: function() {
+            return this.quarter + ' ' + this.year
+        },
+    },
 });
 
 var PostMessage = mongoose.model('PostMessage', postSchema);

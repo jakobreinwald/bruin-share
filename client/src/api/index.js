@@ -8,6 +8,7 @@ export const updatePost = (id, updatedPost) => axios.patch(`${url}/${id}`, updat
 export const deletePost = (id) => axios.delete(`${url}/${id}`);
 export const likePost = (id) => axios.patch(`${url}/${id}/likePost`);
 
-export const getSpecificPosts = (subjectId, classId) => axios.get(`${url}/${subjectId}/${classId}`);
 export const getSubjects = () => axios.get(`${url}/subjects`);
 export const getClasses = (subjectId) => axios.get(`${url}/${subjectId}/classes`);
+export const getQuarters = (subjectId, classId) => axios.get(`${url}/${subjectId}/${classId}/quarters`);
+export const getSpecificPosts = (subjectId, classId, quarterId) => axios.get(`${url}/${subjectId}/${classId}/${quarterId}`);
