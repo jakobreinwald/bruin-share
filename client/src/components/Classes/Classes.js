@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import Class from './Class/Class';
 import useStyles from './styles';
 
-const Classes = ({ currentSubject }) => {
+const Classes = ({ currentSubject, setCurrentClass }) => {
   const classes = useSelector((state) => state.classes);
   const styleClasses = useStyles();
 
@@ -14,7 +14,7 @@ const Classes = ({ currentSubject }) => {
       <Grid className={styleClasses.container} container alignItems="stretch" spacing={3}>
         {classes.map((oneClass) => (
           <Grid key={oneClass} item xs={12} sm={6} md={3}>
-            <Class oneClass={oneClass} currentSubject={currentSubject}/>
+            <Class oneClass={oneClass} currentSubject={currentSubject} setCurrentClass={setCurrentClass} />
           </Grid>
         ))}
       </Grid>

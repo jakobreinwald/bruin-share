@@ -1,16 +1,16 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '@material-ui/core';
-import { getSpecificPosts } from '../../../actions/posts';
+import { getQuarters, clearPosts } from '../../../actions/posts';
 
 import useStyles from './styles';
 
-const Class = ({ oneClass, currentSubject }) => {
+const Class = ({ oneClass, currentSubject, setCurrentClass }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
 
   return (
-    <Button size="large" color="primary" onClick={() => {dispatch(getSpecificPosts(`${currentSubject}`, `${oneClass}`));}}>{oneClass}</Button>
+    <Button size="large" color="primary" onClick={() => {dispatch(getQuarters(`${currentSubject}`, `${oneClass}`)); setCurrentClass(oneClass); dispatch(clearPosts());}}>{oneClass}</Button>
   );
 };
 
