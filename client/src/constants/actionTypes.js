@@ -10,3 +10,5 @@ export const FETCH_QUARTERS = 'FETCH_QUARTERS';
 export const FETCH_SPECIFIC = 'FETCH_SPECIFIC';
 export const CLEAR_POSTS = 'CLEAR_POSTS';
 export const CLEAR_QUARTERS = 'CLEAR_QUARTERS';
+export const PREVIEW = 'PREVIEW';
+export const DOWNLOAD = 'DOWNLOAD';
