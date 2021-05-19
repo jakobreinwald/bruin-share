@@ -75,21 +75,6 @@ export const likePost = async (req, res) => {
     res.json(updatedPost);
 }
 
-export const getSpecificPosts = async (req, res) => { 
-    const { subjectId } = req.params;
-    const { classId } = req.params;
-    try {
-        const posts = await PostMessage.find({
-            'subjectId': `${subjectId}`,
-            'classId': `${classId}`,
-        });
-        
-        res.status(200).json(posts);
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
-}
-
 export const getSubjects = async (req, res) => { 
     try {
         const subjects = await PostMessage.distinct('subjectId');
@@ -109,5 +94,33 @@ export const getClasses = async (req, res) => {
     }
 }
 
+export const getQuarters = async (req, res) => { 
+    const { subjectId } = req.params;
+    const { classId } = req.params;
+    console.log(subjectId, classId);
+    try {
+        const quarters = await PostMessage.distinct('yearQuarter', { classId: {$eq: `${classId}`}, subjectId: {$eq: `${subjectId}`}});
+        res.status(200).json(quarters);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+}
+
+export const getSpecificPosts = async (req, res) => { 
+    const { subjectId } = req.params;
+    const { classId } = req.params;
+    const { quarterId } = req.params;
+    try {
+        const posts = await PostMessage.find({
+            'subjectId': `${subjectId}`,
+            'classId': `${classId}`,
+            'yearQuarter': `${quarterId}`,
+        });
+        
+        res.status(200).json(posts);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+}
 
 export default router;
