@@ -8,7 +8,7 @@ import Subjects from './components/Subjects/Subjects'
 import Classes from './components/Classes/Classes'
 import Quarters from './components/Quarters/Quarters'
 import Form from './components/Form/Form'
-import memories from './images/notes_icon.png'
+import memories from './images/bruinlogo.png'
 import useStyles from './styles';
 
 const App = () => {
