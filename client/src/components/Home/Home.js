@@ -3,11 +3,15 @@ import { Container, Grow, Grid } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPosts, getSubjectPosts, getSubjects } from '../../actions/posts';
 
+import Subjects from '../Subjects/Subjects'
+import Classes from '../Classes/Classes'
+import Quarters from '../Quarters/Quarters'
 import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
+import useStyles from '../../styles'
 
 const Home = () => {
-
+ 
     const [currentId, setCurrentId] = useState(0)
     const [currentSubject, setCurrentSubject] = useState(0)
     const [currentClass, setCurrentClass] = useState(0)

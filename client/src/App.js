@@ -1,49 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Grow, Grid, Button } from '@material-ui/core';
-import { useDispatch, useSelector } from 'react-redux';
+import { Container } from '@material-ui/core';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import { getPosts, getSubjectPosts, getSubjects } from './actions/posts';
-import Posts from './components/Posts/Posts'
-import Subjects from './components/Subjects/Subjects'
-import Classes from './components/Classes/Classes'
-import Quarters from './components/Quarters/Quarters'
-import Form from './components/Form/Form'
-import useStyles from './styles';
+// import { getPosts, getSubjectPosts, getSubjects } from './actions/posts';
+// import Posts from './components/Posts/Posts'
+// import Subjects from './components/Subjects/Subjects'
+// import Classes from './components/Classes/Classes'
+// import Quarters from './components/Quarters/Quarters'
+// import Form from './components/Form/Form'
+// import useStyles from './styles';
 import Navbar from './components/Navbar/Navbar';
+import Home from './components/Home/Home';
+import Auth from './components/Auth/Auth';
 
 const App = () => {
-    const [currentId, setCurrentId] = useState(0)
-    const [currentSubject, setCurrentSubject] = useState(0)
-    const [currentClass, setCurrentClass] = useState(0)
-    const classes = useStyles();
-    const dispatch = useDispatch();
-
-
-    useEffect(() => {
-        dispatch(getSubjects());
-    }, [dispatch]);
-    /* useEffect(() => {
-        dispatch(getPosts());
-    }, [currentId, dispatch]); */
-
     return (
+    <BrowserRouter>
         <Container maxwidth="lg">
             <Navbar />
-            <Grow in>
-                <Container> 
-                    <Subjects setCurrentSubject={setCurrentSubject} />
-                    <Classes currentSubject={currentSubject} setCurrentClass={setCurrentClass} />
-                    <Quarters currentSubject={currentSubject} currentClass={currentClass} />
-
-
-                    <Grid className={classes.mainContainer} container justify="space-between" alignItems="stretch" spacing={3}>
-                        <Grid item xs={12} sm={7}>
-                            <Posts setCurrentId={setCurrentId} />
-                        </Grid>
-                    </Grid>
-                </Container>
-            </Grow>
+            <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/auth" exact component={Auth} />
+            </Switch>
         </Container>
+    </BrowserRouter>
     );
 };
 
