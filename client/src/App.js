@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, AppBar, Typography, Grow, Grid, Button } from '@material-ui/core';
+import { Container, Grow, Grid, Button } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getPosts, getSubjectPosts, getSubjects } from './actions/posts';
@@ -8,8 +8,8 @@ import Subjects from './components/Subjects/Subjects'
 import Classes from './components/Classes/Classes'
 import Quarters from './components/Quarters/Quarters'
 import Form from './components/Form/Form'
-import memories from './images/bruinlogo.png'
 import useStyles from './styles';
+import Navbar from './components/Navbar/Navbar';
 
 const App = () => {
     const [currentId, setCurrentId] = useState(0)
@@ -22,16 +22,13 @@ const App = () => {
     useEffect(() => {
         dispatch(getSubjects());
     }, [dispatch]);
-/*     useEffect(() => {
+    /* useEffect(() => {
         dispatch(getPosts());
     }, [currentId, dispatch]); */
 
     return (
         <Container maxwidth="lg">
-            <AppBar className={classes.appBar} position="static" color="inherit">
-                <Typography className={classes.heading} variant="h2" align="center">Bruin Share</Typography>
-                <img className={classes.image} src={memories} alt="memories" height="60"/>
-            </AppBar>
+            <Navbar />
             <Grow in>
                 <Container> 
                     <Subjects setCurrentSubject={setCurrentSubject} />
