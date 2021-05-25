@@ -1,6 +1,5 @@
 import * as api from '../api';
-import axios from 'axios';
-import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE, FETCH_SUBJECTS, FETCH_CLASSES, FETCH_QUARTERS, FETCH_SPECIFIC, CLEAR_POSTS, CLEAR_QUARTERS, PREVIEW } from '../constants/actionTypes';
+import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE, FETCH_SUBJECTS, FETCH_CLASSES, FETCH_QUARTERS, FETCH_SPECIFIC, CLEAR_POSTS, CLEAR_QUARTERS } from '../constants/actionTypes';
 
 export const getPosts = () => async (dispatch) => {
     try {
