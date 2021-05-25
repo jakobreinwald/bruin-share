@@ -1,5 +1,6 @@
 import * as api from '../api';
-import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE, FETCH_SUBJECTS, FETCH_CLASSES, FETCH_QUARTERS, FETCH_SPECIFIC, CLEAR_POSTS, CLEAR_QUARTERS } from '../constants/actionTypes';
+import axios from 'axios';
+import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE, FETCH_SUBJECTS, FETCH_CLASSES, FETCH_QUARTERS, FETCH_SPECIFIC, CLEAR_POSTS, CLEAR_QUARTERS, PREVIEW } from '../constants/actionTypes';
 
 export const getPosts = () => async (dispatch) => {
     try {
@@ -47,6 +48,36 @@ export const likePost = (id) => async (dispatch) => {
 
         dispatch({ type: LIKE, payload: data });
     } catch (error) {
+        console.log(error);
+    }
+}
+
+// helper function for ShowPDF
+const convertFromBase64 = (str) => {
+    // Cut the prefix `data:application/pdf;base64` from the raw base 64
+    const dataWithoutPrefix = str.substr('data:application/pdf;base64,'.length);
+
+    const bytes = atob(dataWithoutPrefix);
+    let length = bytes.length;
+    let out = new Uint8Array(length);
+
+    while (length--) {
+        out[length] = bytes.charCodeAt(length);
+    }
+
+    return new Blob([out], { type: 'application/pdf' });
+};
+
+export const ShowPDF = (file) => async () => {
+    try {
+        if (file === "") { 
+            alert("no PDF file to open!");
+        } else {
+            const blob = convertFromBase64(file);
+            const url = URL.createObjectURL(blob);
+            window.open(url);
+        }
+    } catch(error) { 
         console.log(error);
     }
 }
