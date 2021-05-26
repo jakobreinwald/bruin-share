@@ -34,8 +34,8 @@ const Post = ({ post, setCurrentId }) => {
       </CardContent>
       <CardActions className={classes.cardActions}>
         <Button size="small" color="primary" onClick={() => dispatch(likePost(post._id))}><ThumbUpAltIcon fontSize="small" /> Like {post.likeCount} </Button>
-        <Button size="small" color="primary" onClick={() => dispatch(ShowPDF(post.selectedFile))}><VisibilityIcon fontSize="small" /> Preview</Button>
-        <Button size="small" color="primary" /*onClick={() => dispatch(deletePost(post._id))}*/><GetAppIcon fontSize="small" /> Download</Button>
+        <Button size="small" color="primary" onClick={() => dispatch(ShowPDF(post.selectedFile))}><VisibilityIcon fontSize="small" /> View & Download</Button>
+        
       </CardActions>
     </Card>
   );
@@ -44,3 +44,4 @@ const Post = ({ post, setCurrentId }) => {
 export default Post;
 
 //<Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small" /> Delete</Button>
+//<Button size="small" color="primary" /*onClick={() => dispatch(deletePost(post._id))}*/><GetAppIcon fontSize="small" /> Download</Button>
