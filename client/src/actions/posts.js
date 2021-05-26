@@ -70,7 +70,7 @@ const convertFromBase64 = (str) => {
 export const ShowPDF = (file) => async () => {
     try {
         if (file === "") { 
-            alert("no PDF file to open!");
+            alert("No PDF file to open!");
         } else {
             const blob = convertFromBase64(file);
             const url = URL.createObjectURL(blob);
