@@ -17,7 +17,7 @@ const Post = ({ post, setCurrentId }) => {
 
   return (
     <Card className={classes.card}>
-      <CardMedia className={classes.media} image={/*post.selectedFile || */'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPEAAADRCAMAAAAquaQNAAAAA1BMVEX///+nxBvIAAAAR0lEQVR4nO3BMQEAAADCoPVP7WULoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABuxZIAAeHuCGgAAAAASUVORK5CYII='} title={post.title} />
+      <CardMedia className={classes.media} image={/*post.selectedFile || */'http://michelleogundehin.com/wp-content/uploads/2018/04/Lamplighter-%C2%A332.98-per-2.5-litre-flat-emulsion.png'} title={post.title} />
       <div className={classes.overlay}>
         <Typography variant="h6">{post.creator}</Typography>
         <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
