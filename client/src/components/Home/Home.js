@@ -28,9 +28,9 @@ const Home = ({ currentId, setCurrentId }) => {
     return (
         <Grow in>
             <Container> 
-                <Subjects setCurrentSubject={setCurrentSubject} setCurrentClass={setCurrentClass} setCurrentQuarter={setCurrentQuarter}/>
-                <Classes currentSubject={currentSubject} setCurrentClass={setCurrentClass} setCurrentQuarter={setCurrentQuarter}/>
-                <Quarters currentSubject={currentSubject} currentClass={currentClass} setCurrentQuarter={setCurrentQuarter}/>
+                <Subjects currentSubject={currentSubject} setCurrentSubject={setCurrentSubject} currentClass={currentClass}     setCurrentClass={setCurrentClass} currentQuarter={currentQuarter} setCurrentQuarter={setCurrentQuarter}/>
+                <Classes currentSubject={currentSubject} currentClass={currentClass} setCurrentClass={setCurrentClass} setCurrentQuarter={setCurrentQuarter}/>
+                <Quarters currentSubject={currentSubject} currentClass={currentClass} currentQuarter={currentQuarter} setCurrentQuarter={setCurrentQuarter}/>
 
 
                 <Grid className={classes.mainContainer} container justify="space-between" alignItems="stretch" spacing={3}>
