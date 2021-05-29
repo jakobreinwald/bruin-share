@@ -14,6 +14,9 @@ export default makeStyles((theme) => ({
   heading: {
     color: 'rgba(240, 194, 61, 1)',
     textDecoration: 'none',
+    '&:hover': {
+      color: 'teal',
+    },
   },
   image: {
     marginLeft: '15px',

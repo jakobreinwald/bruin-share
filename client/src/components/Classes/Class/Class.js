@@ -10,7 +10,7 @@ const Class = ({ oneClass, currentSubject, setCurrentClass, setCurrentQuarter })
   const classes = useStyles();
 
   return (
-    <Button size="large" color="primary" onClick={() => {
+    <Button size="large" color="secondary" onClick={() => {
         dispatch(getQuarters(`${currentSubject}`, `${oneClass}`)); 
         setCurrentClass(oneClass);
         setCurrentQuarter(0); 

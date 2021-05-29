@@ -97,7 +97,6 @@ export const getClasses = async (req, res) => {
 export const getQuarters = async (req, res) => { 
     const { subjectId } = req.params;
     const { classId } = req.params;
-    console.log(subjectId, classId);
     try {
         const quarters = await PostMessage.distinct('yearQuarter', { classId: {$eq: `${classId}`}, subjectId: {$eq: `${subjectId}`}});
         res.status(200).json(quarters);

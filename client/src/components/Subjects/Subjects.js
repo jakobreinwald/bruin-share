@@ -13,7 +13,7 @@ const Subjects = ({ setCurrentSubject, setCurrentClass, setCurrentQuarter }) => 
     !subjects.length ? <CircularProgress /> : (
       <Grid className={classes.container} container alignItems="stretch" spacing={3}>
         {subjects.map((subject) => (
-          <Grid key={subject} item xs={12} sm={6} md={3}>
+          <Grid key={subject} item xs={12} sm={6} md={2}>
             <Subject subject={subject} setCurrentSubject={setCurrentSubject} setCurrentClass={setCurrentClass} setCurrentQuarter={setCurrentQuarter}/>
           </Grid>
         ))}

@@ -19,7 +19,7 @@ const Quarters = ({ currentSubject, currentClass, setCurrentQuarter }) => {
     !quarters.length ? <CircularProgress /> : (
       <Grid className={classes.container} container alignItems="stretch" spacing={3}>
         {quarters.map((oneQuarter) => (
-          <Grid key={oneQuarter} item xs={12} sm={6} md={3}>
+          <Grid key={oneQuarter} item xs={12} sm={6} md={2}>
             <Quarter oneQuarter={oneQuarter} currentSubject={currentSubject} currentClass={currentClass} setCurrentQuarter={setCurrentQuarter}/>
           </Grid>
         ))}

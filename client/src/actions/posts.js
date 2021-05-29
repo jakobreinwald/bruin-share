@@ -101,10 +101,8 @@ export const getClasses = (subjectId) => async (dispatch) => {
 }
 
 export const getQuarters = (subjectId, classId) => async (dispatch) => {
-    console.log(subjectId, classId);
     try {
         const { data } = await api.getQuarters(subjectId, classId);
-        console.log(data);
         dispatch({ type: FETCH_QUARTERS, payload: data });
     } catch (error) {
         console.log(error.message)
