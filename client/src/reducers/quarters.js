@@ -1,6 +1,6 @@
 import { FETCH_QUARTERS, CLEAR_QUARTERS } from '../constants/actionTypes';
 
-export default (quarters = [], action) => {
+const quarterActions = (quarters = [], action) => {
   switch (action.type) {
     case FETCH_QUARTERS:
         return action.payload;
@@ -10,3 +10,5 @@ export default (quarters = [], action) => {
       return quarters;
   }
 };
+
+export default quarterActions;

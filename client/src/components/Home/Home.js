@@ -7,12 +7,10 @@ import Subjects from '../Subjects/Subjects'
 import Classes from '../Classes/Classes'
 import Quarters from '../Quarters/Quarters'
 import Posts from '../Posts/Posts';
-import Form from '../Form/Form';
 import useStyles from '../../styles'
 
-const Home = () => {
+const Home = ({ currentId, setCurrentId }) => {
  
-    const [currentId, setCurrentId] = useState(0)
     const [currentSubject, setCurrentSubject] = useState(0)
     const [currentClass, setCurrentClass] = useState(0)
     const classes = useStyles();

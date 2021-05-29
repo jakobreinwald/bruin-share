@@ -1,6 +1,6 @@
 import { FETCH_CLASSES } from '../constants/actionTypes';
 
-export default (classes = [], action) => {
+const classActions = (classes = [], action) => {
   switch (action.type) {
     case FETCH_CLASSES:
       return action.payload;
@@ -8,3 +8,5 @@ export default (classes = [], action) => {
       return classes;
   }
 };
+
+export default classActions;

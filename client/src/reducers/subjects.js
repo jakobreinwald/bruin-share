@@ -1,6 +1,6 @@
 import { FETCH_SUBJECTS } from '../constants/actionTypes';
 
-export default (subjects = [], action) => {
+const subjectActions = (subjects = [], action) => {
   switch (action.type) {
     case FETCH_SUBJECTS:
       return action.payload;
@@ -8,3 +8,5 @@ export default (subjects = [], action) => {
       return subjects;
   }
 };
+
+export default subjectActions;
