@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import Subject from './Subject/Subject';
 import useStyles from './styles';
 
-const Subjects = ({ setCurrentSubject }) => {
+const Subjects = ({ setCurrentSubject, setCurrentClass, setCurrentQuarter }) => {
   const subjects = useSelector((state) => state.subjects);
   const classes = useStyles();
 
@@ -14,7 +14,7 @@ const Subjects = ({ setCurrentSubject }) => {
       <Grid className={classes.container} container alignItems="stretch" spacing={3}>
         {subjects.map((subject) => (
           <Grid key={subject} item xs={12} sm={6} md={3}>
-            <Subject subject={subject} setCurrentSubject={setCurrentSubject}/>
+            <Subject subject={subject} setCurrentSubject={setCurrentSubject} setCurrentClass={setCurrentClass} setCurrentQuarter={setCurrentQuarter}/>
           </Grid>
         ))}
       </Grid>

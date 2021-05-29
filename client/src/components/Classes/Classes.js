@@ -5,16 +5,19 @@ import { useSelector } from 'react-redux';
 import Class from './Class/Class';
 import useStyles from './styles';
 
-const Classes = ({ currentSubject, setCurrentClass }) => {
+const Classes = ({ currentSubject, setCurrentClass, setCurrentQuarter }) => {
   const classes = useSelector((state) => state.classes);
   const styleClasses = useStyles();
 
+  if (!currentSubject) {
+    return null;
+  }
   return (
-    !classes.length ? null : (
+    !classes.length ? <CircularProgress/> : (
       <Grid className={styleClasses.container} container alignItems="stretch" spacing={3}>
         {classes.map((oneClass) => (
           <Grid key={oneClass} item xs={12} sm={6} md={3}>
-            <Class oneClass={oneClass} currentSubject={currentSubject} setCurrentClass={setCurrentClass} />
+            <Class oneClass={oneClass} currentSubject={currentSubject} setCurrentClass={setCurrentClass} setCurrentQuarter={setCurrentQuarter}/>
           </Grid>
         ))}
       </Grid>

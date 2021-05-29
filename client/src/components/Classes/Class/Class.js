@@ -5,12 +5,17 @@ import { getQuarters, clearPosts } from '../../../actions/posts';
 
 import useStyles from './styles';
 
-const Class = ({ oneClass, currentSubject, setCurrentClass }) => {
+const Class = ({ oneClass, currentSubject, setCurrentClass, setCurrentQuarter }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
 
   return (
-    <Button size="large" color="primary" onClick={() => {dispatch(getQuarters(`${currentSubject}`, `${oneClass}`)); setCurrentClass(oneClass); dispatch(clearPosts());}}>{oneClass}</Button>
+    <Button size="large" color="primary" onClick={() => {
+        dispatch(getQuarters(`${currentSubject}`, `${oneClass}`)); 
+        setCurrentClass(oneClass);
+        setCurrentQuarter(0); 
+        dispatch(clearPosts());
+      }}>{oneClass}</Button>
   );
 };
 

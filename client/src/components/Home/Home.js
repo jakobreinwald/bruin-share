@@ -13,6 +13,7 @@ const Home = ({ currentId, setCurrentId }) => {
  
     const [currentSubject, setCurrentSubject] = useState(0)
     const [currentClass, setCurrentClass] = useState(0)
+    const [currentQuarter, setCurrentQuarter] = useState(0)
     const classes = useStyles();
     const dispatch = useDispatch();
 
@@ -27,14 +28,14 @@ const Home = ({ currentId, setCurrentId }) => {
     return (
         <Grow in>
             <Container> 
-                <Subjects setCurrentSubject={setCurrentSubject} />
-                <Classes currentSubject={currentSubject} setCurrentClass={setCurrentClass} />
-                <Quarters currentSubject={currentSubject} currentClass={currentClass} />
+                <Subjects setCurrentSubject={setCurrentSubject} setCurrentClass={setCurrentClass} setCurrentQuarter={setCurrentQuarter}/>
+                <Classes currentSubject={currentSubject} setCurrentClass={setCurrentClass} setCurrentQuarter={setCurrentQuarter}/>
+                <Quarters currentSubject={currentSubject} currentClass={currentClass} setCurrentQuarter={setCurrentQuarter}/>
 
 
                 <Grid className={classes.mainContainer} container justify="space-between" alignItems="stretch" spacing={3}>
                     <Grid item xs={12} sm={7}>
-                        <Posts setCurrentId={setCurrentId} />
+                        <Posts setCurrentId={setCurrentId} currentSubject={currentSubject} currentClass={currentClass} currentQuarter={currentQuarter}/>
                     </Grid>
                 </Grid>
             </Container>
