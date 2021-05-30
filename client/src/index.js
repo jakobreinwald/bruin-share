@@ -14,13 +14,13 @@ const store = createStore(reducers, compose(applyMiddleware(thunk)))
 const theme = createMuiTheme({
     palette: {
         primary: {
-            main: '#ffb81c',
+            main: '#edc73e',
         },
         secondary: {
             main: '#8bb8e8',
         },
         info: {
-            main: '#ffd9e0',
+            main: '#ffffff',
         },
     },
 });

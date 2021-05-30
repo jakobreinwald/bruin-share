@@ -19,8 +19,8 @@ const Navbar = () => {
                 <img className={classes.image} src={bruinLogo} alt="bruinLogo" height="60"/>
             </div>
             <Toolbar className={classes.Toolbar}>
-                <Button component={Link} to="/about" color="primary">About</Button>
-                <Button component={Link} to="/form" color="secondary">Create a Post</Button>
+                <Button component={Link} width="60px" to="/about" color="secondary">About</Button>
+                <Button className={classes.createPostButton} component={Link} to="/form" color="secondary">Create a Post</Button>
                 {user ? (
                     <div className={classes.profile}>
                         <Avatar className={classes.purple} alt={user.result.name} src={user.result.imageUrl}>
@@ -32,7 +32,7 @@ const Navbar = () => {
                         <Button variant="contained" className={classes.logout} color="secondary">Logout</Button>
                     </div>
                     ) : (
-                        <Button component={Link} to="/auth" color="primary">Sign In</Button>
+                        <Button component={Link} to="/auth" color="secondary">Sign In</Button>
                     )
                 }
             </Toolbar>
