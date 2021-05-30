@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Grow, Grid } from '@material-ui/core';
-import { useDispatch, useSelector } from 'react-redux';
-import { getPosts, getSubjectPosts, getSubjects } from '../../actions/posts';
+import { Container, Grow, Grid, Divider } from '@material-ui/core';
+import { useDispatch } from 'react-redux';
+import { getSubjects } from '../../actions/posts';
 
 import Subjects from '../Subjects/Subjects'
 import Classes from '../Classes/Classes'
@@ -28,16 +28,25 @@ const Home = ({ currentId, setCurrentId }) => {
     return (
         <Grow in>
             <Container> 
-                <Subjects currentSubject={currentSubject} setCurrentSubject={setCurrentSubject} currentClass={currentClass}     setCurrentClass={setCurrentClass} currentQuarter={currentQuarter} setCurrentQuarter={setCurrentQuarter}/>
-                <Classes currentSubject={currentSubject} currentClass={currentClass} setCurrentClass={setCurrentClass} setCurrentQuarter={setCurrentQuarter}/>
-                <Quarters currentSubject={currentSubject} currentClass={currentClass} currentQuarter={currentQuarter} setCurrentQuarter={setCurrentQuarter}/>
-
-
-                <Grid className={classes.mainContainer} container justify="space-between" alignItems="stretch" spacing={3}>
-                    <Grid item xs={12} sm={7}>
-                        <Posts setCurrentId={setCurrentId} currentSubject={currentSubject} currentClass={currentClass} currentQuarter={currentQuarter}/>
+                <div style={{ padding: 15 }}>
+                    <Subjects currentSubject={currentSubject} setCurrentSubject={setCurrentSubject} currentClass={currentClass}     setCurrentClass={setCurrentClass} currentQuarter={currentQuarter} setCurrentQuarter={setCurrentQuarter}/>
+                </div>
+                <Divider />
+                <div style={{ padding: 15 }}>
+                    <Classes currentSubject={currentSubject} currentClass={currentClass} setCurrentClass={setCurrentClass} setCurrentQuarter={setCurrentQuarter}/>
+                </div>
+                <Divider />
+                <div style={{ padding: 15 }}>
+                    <Quarters currentSubject={currentSubject} currentClass={currentClass} currentQuarter={currentQuarter} setCurrentQuarter={setCurrentQuarter}/>
+                </div>
+                <Divider />
+                <div style={{ padding: 15 }}>
+                    <Grid className={classes.mainContainer} container justify="space-between" alignItems="stretch" spacing={3}>
+                        <Grid item xs={12} sm={7}>
+                            <Posts setCurrentId={setCurrentId} currentSubject={currentSubject} currentClass={currentClass} currentQuarter={currentQuarter}/>
+                        </Grid>
                     </Grid>
-                </Grid>
+                </div>
             </Container>
         </Grow>
     );

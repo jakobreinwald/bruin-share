@@ -14,7 +14,7 @@ const Classes = ({ currentSubject, currentClass, setCurrentClass, setCurrentQuar
   }
   return (
     !classes.length ? <CircularProgress/> : (
-      <Grid className={styleClasses.container} container alignItems="stretch" spacing={3}>
+      <Grid className={styleClasses.mainContainer} container alignItems="stretch" spacing={3}>
         {classes.map((oneClass) => (
           <Grid key={oneClass} item xs={12} sm={6} md={2}>
             <Class oneClass={oneClass} currentSubject={currentSubject} currentClass={currentClass} setCurrentClass={setCurrentClass} setCurrentQuarter={setCurrentQuarter}/>

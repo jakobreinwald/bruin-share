@@ -10,7 +10,7 @@ const Subject = ({ subject, currentSubject, setCurrentSubject, setCurrentClass, 
   const classes = useStyles();
 
   return (
-    <Button className={currentSubject === subject ? classes.clicked : classes.notClicked} size="large" color="primary" onClick={() => {
+    <Button className={currentSubject === subject ? classes.clicked : classes.notClicked} fullWidth='true' size="large" onClick={() => {
         dispatch(getClasses(subject)); 
         setCurrentSubject(subject); 
         setCurrentClass(0);

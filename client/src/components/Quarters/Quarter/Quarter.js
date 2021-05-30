@@ -11,7 +11,7 @@ const Quarter = ({ oneQuarter, currentSubject, currentClass, currentQuarter, set
   const classes = useStyles();
 
   return (
-    <Button className={currentQuarter === oneQuarter ? classes.clicked : classes.notClicked} size="large" color="primary" onClick={() => {  
+    <Button className={currentQuarter === oneQuarter ? classes.clicked : classes.notClicked} fullWidth='true' size="large" onClick={() => {  
           dispatch(getSpecificPosts(`${currentSubject}`, `${currentClass}`, `${oneQuarter}`)); 
           setCurrentQuarter(oneQuarter)
           dispatch(clearPosts());

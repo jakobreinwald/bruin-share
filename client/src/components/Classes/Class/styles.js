@@ -1,10 +1,19 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles({
+export default makeStyles((theme) => ({
     clicked: {
-        color: 'white',
+        color: theme.palette.primary.main,
+        backgroundColor: theme.palette.info.main,
+        '&:hover': {
+            color: theme.palette.primary.main,
+            backgroundColor: theme.palette.info.main,
+        },
     },
     notClicked: {
-        color: 'blue',
+        color: '#005587',
+        '&:hover': {
+            color: theme.palette.primary.main,
+            backgroundColor: theme.palette.info.main,
+        },
     },
-});
+}));

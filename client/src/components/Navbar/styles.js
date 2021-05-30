@@ -12,10 +12,10 @@ export default makeStyles((theme) => ({
     padding: '10px 50px',
   },
   heading: {
-    color: 'rgba(240, 194, 61, 1)',
+    color: theme.palette.primary.main,
     textDecoration: 'none',
     '&:hover': {
-      color: 'teal',
+      color: theme.palette.secondary.main,
     },
   },
   image: {
