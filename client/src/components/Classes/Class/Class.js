@@ -5,12 +5,12 @@ import { getQuarters, clearPosts } from '../../../actions/posts';
 
 import useStyles from './styles';
 
-const Class = ({ oneClass, currentSubject, setCurrentClass, setCurrentQuarter }) => {
+const Class = ({ oneClass, currentSubject, currentClass, setCurrentClass, setCurrentQuarter }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
 
   return (
-    <Button size="large" color="primary" onClick={() => {
+    <Button className={currentClass === oneClass ? classes.clicked : classes.notClicked} fullWidth='true' size="large" onClick={() => {
         dispatch(getQuarters(`${currentSubject}`, `${oneClass}`)); 
         setCurrentClass(oneClass);
         setCurrentQuarter(0); 

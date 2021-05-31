@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Grow, Grid, AppBar, Button } from '@material-ui/core';
-import { useDispatch, useSelector } from 'react-redux';
-import { getPosts, getSubjectPosts, getSubjects, searchForPosts } from '../../actions/posts';
+import { Container, Grow, Grid, Divider, AppBar, Button } from '@material-ui/core';
+import { useDispatch } from 'react-redux';
+import { getSubjects, searchForPosts } from '../../actions/posts';
 import ChipInput from 'material-ui-chip-input';
 
 import Subjects from '../Subjects/Subjects'
@@ -42,16 +42,25 @@ const Home = ({ currentId, setCurrentId }) => {
     return (
         <Grow in>
             <Container> 
-                <Subjects setCurrentSubject={setCurrentSubject} setCurrentClass={setCurrentClass} setCurrentQuarter={setCurrentQuarter}/>
-                <Classes currentSubject={currentSubject} setCurrentClass={setCurrentClass} setCurrentQuarter={setCurrentQuarter}/>
-                <Quarters currentSubject={currentSubject} currentClass={currentClass} setCurrentQuarter={setCurrentQuarter}/>
-
-
-                <Grid className={classes.mainContainer} container justify="space-between" alignItems="stretch" spacing={3}>
-                    <Grid item xs={12} sm={7}>
-                        <Posts setCurrentId={setCurrentId} currentSubject={currentSubject} currentClass={currentClass} currentQuarter={currentQuarter}/>
+                <div style={{ padding: 15 }}>
+                    <Subjects currentSubject={currentSubject} setCurrentSubject={setCurrentSubject} currentClass={currentClass}     setCurrentClass={setCurrentClass} currentQuarter={currentQuarter} setCurrentQuarter={setCurrentQuarter}/>
+                </div>
+                <Divider />
+                <div style={{ padding: 15 }}>
+                    <Classes currentSubject={currentSubject} currentClass={currentClass} setCurrentClass={setCurrentClass} setCurrentQuarter={setCurrentQuarter}/>
+                </div>
+                <Divider />
+                <div style={{ padding: 15 }}>
+                    <Quarters currentSubject={currentSubject} currentClass={currentClass} currentQuarter={currentQuarter} setCurrentQuarter={setCurrentQuarter}/>
+                </div>
+                <Divider />
+                <div style={{ padding: 15 }}>
+                    <Grid className={classes.mainContainer} container justify="space-between" alignItems="stretch" spacing={3}>
+                        <Grid item xs={12} sm={7}>
+                            <Posts setCurrentId={setCurrentId} currentSubject={currentSubject} currentClass={currentClass} currentQuarter={currentQuarter}/>
+                        </Grid>
                     </Grid>
-                </Grid>
+                </div>
                 <p></p>
                 <Grid item xs={12} md={12}>
                     <AppBar className={classes2.appBarSearch} position="static" color="inherit">

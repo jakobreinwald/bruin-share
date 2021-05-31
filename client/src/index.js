@@ -7,12 +7,29 @@ import thunk from 'redux-thunk';
 import { reducers } from './reducers';
 import App from './App';
 import './index.css';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)))
 
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: '#edc73e',
+        },
+        secondary: {
+            main: '#8bb8e8',
+        },
+        info: {
+            main: '#ffffff',
+        },
+    },
+});
+
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider> ,
+    <ThemeProvider theme={theme}>
+        <Provider store={store}>
+            <App />
+        </Provider> 
+    </ThemeProvider>,
     document.getElementById('root')
 );

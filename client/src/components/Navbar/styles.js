@@ -12,8 +12,11 @@ export default makeStyles((theme) => ({
     padding: '10px 50px',
   },
   heading: {
-    color: 'rgba(240, 194, 61, 1)',
+    color: theme.palette.primary.main,
     textDecoration: 'none',
+    '&:hover': {
+      color: theme.palette.secondary.main,
+    },
   },
   image: {
     marginLeft: '15px',
@@ -39,5 +42,8 @@ export default makeStyles((theme) => ({
   purple: {
     color: theme.palette.getContrastText(deepPurple[500]),
     backgroundColor: deepPurple[500],
+  },
+  createPostButton: {
+    width: '200px',
   },
 }));
