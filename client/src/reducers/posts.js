@@ -1,17 +1,19 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE, FETCH_SPECIFIC, CLEAR_POSTS } from '../constants/actionTypes';
+import { FETCH_ALL, SEARCH, CREATE, UPDATE, DELETE, LIKE, FETCH_SPECIFIC, CLEAR_POSTS } from '../constants/actionTypes';
 
 const postActions = (posts = [], action) => {
   switch (action.type) {
     case FETCH_ALL:
       return action.payload;
-    case LIKE:
-      return posts.map((post) => (post._id === action.payload._id ? action.payload : post));
+    case SEARCH:
+      return action.payload;
     case CREATE:
       return [...posts, action.payload];
     case UPDATE:
       return posts.map((post) => (post._id === action.payload._id ? action.payload : post));
     case DELETE:
       return posts.filter((post) => post._id !== action.payload);
+    case LIKE:
+      return posts.map((post) => (post._id === action.payload._id ? action.payload : post));
     case FETCH_SPECIFIC:
       return action.payload;
     case CLEAR_POSTS:

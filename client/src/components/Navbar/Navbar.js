@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
-import {AppBar, Avatar, Typography, Toolbar, Button } from '@material-ui/core';
+import {AppBar, Avatar, Button, Toolbar, Typography } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
+import decode from 'jwt-decode';
+
+import * as actionType from '../../constants/actionTypes';
 import bruinLogo from '../../images/bruinlogo.png';
 import useStyles from './styles';
 
@@ -13,16 +16,22 @@ const Navbar = () => {
     const location = useLocation();
 
     const logout = () => {
-        dispatch({ type: 'LOGOUT' });
-
-        history.push('/');
-
+        dispatch({ type: actionType.LOGOUT });
+    
+        history.push('/auth');
+    
         setUser(null);
     };
 
     useEffect(() => {
         const token = user?.token;
-
+    
+        if (token) {
+            const decodedToken = decode(token);
+    
+            if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+        }
+    
         setUser(JSON.parse(localStorage.getItem('profile')));
     }, [location]);
 
@@ -35,8 +44,8 @@ const Navbar = () => {
                 <img className={classes.image} src={bruinLogo} alt="bruinLogo" height="60"/>
             </div>
             <Toolbar className={classes.Toolbar}>
-                <Button component={Link} width="60px" to="/about" color="secondary">About</Button>
-                <Button className={classes.createPostButton} component={Link} to="/form" color="secondary">Create a Post</Button>
+                <Button component={Link} to="/about" className={classes.navButton} color="secondary">About</Button>
+                <Button className={classes.navButton} component={Link} to="/form" color="secondary">Create a Post</Button>
                 {user ? (
                     <div className={classes.profile}>
                         <Avatar className={classes.purple} alt={user.result.name} src={user.result.imageUrl}>
@@ -48,7 +57,7 @@ const Navbar = () => {
                         <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
                     </div>
                     ) : (
-                        <Button component={Link} to="/auth" color="secondary">Sign In</Button>
+                        <Button component={Link} to="/auth" className={classes.navButton} color="secondary">Sign In</Button>
                     )
                 }
             </Toolbar>

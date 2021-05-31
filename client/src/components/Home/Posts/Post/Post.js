@@ -1,14 +1,12 @@
 import React from 'react';
-import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
+import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core/';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
-import DeleteIcon from '@material-ui/icons/Delete';
 import VisibilityIcon from '@material-ui/icons/Visibility';
-import GetAppIcon from '@material-ui/icons/GetApp';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
 
-import { likePost, deletePost, ShowPDF } from '../../../actions/posts';
+import { likePost, ShowPDF } from '../../../../actions/posts';
 import useStyles from './styles';
 
 const Post = ({ post, setCurrentId }) => {
@@ -17,7 +15,7 @@ const Post = ({ post, setCurrentId }) => {
 
   return (
     <Card className={classes.card}>
-      <CardMedia className={classes.media} image={/*post.selectedFile || */'http://michelleogundehin.com/wp-content/uploads/2018/04/Lamplighter-%C2%A332.98-per-2.5-litre-flat-emulsion.png'} title={post.title} />
+      <CardMedia className={classes.media} image={ 'http://michelleogundehin.com/wp-content/uploads/2018/04/Lamplighter-%C2%A332.98-per-2.5-litre-flat-emulsion.png'} title={post.title} />
       <div className={classes.overlay}>
         <Typography variant="h6">{post.name}</Typography>
         <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
@@ -42,6 +40,3 @@ const Post = ({ post, setCurrentId }) => {
 };
 
 export default Post;
-
-//<Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small" /> Delete</Button>
-//<Button size="small" color="primary" /*onClick={() => dispatch(deletePost(post._id))}*/><GetAppIcon fontSize="small" /> Download</Button>

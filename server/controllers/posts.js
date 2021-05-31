@@ -14,14 +14,12 @@ export const getPosts = async (req, res) => {
     }
 }
 
-export const getPost = async (req, res) => { 
-    const { id } = req.params;
-
+export const searchForPosts = async (req, res) => {
+    const { tags } = req.query;
     try {
-        const post = await PostMessage.findById(id);
-        
-        res.status(200).json(post);
-    } catch (error) {
+        const posts = await PostMessage.find({ tags: { $in: tags.split(',') } });
+        res.status(200).json(posts);
+    } catch (error) {    
         res.status(404).json({ message: error.message });
     }
 }
@@ -128,16 +126,6 @@ export const getSpecificPosts = async (req, res) => {
         
         res.status(200).json(posts);
     } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
-}
-
-export const searchForPosts = async (req, res) => {
-    const { tags } = req.query;
-    try {
-        const posts = await PostMessage.find({ tags: { $in: tags.split(',') } });
-        res.status(200).json(posts);
-    } catch (error) {    
         res.status(404).json({ message: error.message });
     }
 }

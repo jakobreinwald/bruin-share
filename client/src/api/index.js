@@ -19,7 +19,7 @@ export const likePost = (id) => API.patch(`/posts/${id}/likePost`);
 
 export const getSubjects = () => API.get(`/posts/subjects`);
 export const getClasses = (subjectId) => API.get(`/posts/${subjectId}/classes`);
-export const getQuarters = (subjectId, classId) => axios.get(`/posts/${subjectId}/${classId}/quarters`);
+export const getQuarters = (subjectId, classId) => API.get(`/posts/${subjectId}/${classId}/quarters`);
 export const getSpecificPosts = (subjectId, classId, quarterId) => API.get(`/posts/${subjectId}/${classId}/${quarterId}`);
 
 export const signIn = (formData) => API.post('/user/signin', formData);

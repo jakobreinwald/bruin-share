@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Button } from '@material-ui/core';
-import { getClasses, clearPosts, clearQuarters } from '../../../actions/posts';
 
+import { getClasses, clearPosts, clearQuarters } from '../../../../actions/posts';
 import useStyles from './styles';
 
 const Subject = ({ subject, currentSubject, setCurrentSubject, setCurrentClass, setCurrentQuarter, setSearchUsed }) => {

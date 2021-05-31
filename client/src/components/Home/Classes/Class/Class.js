@@ -1,8 +1,8 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Button } from '@material-ui/core';
-import { getQuarters, clearPosts } from '../../../actions/posts';
 
+import { getQuarters, clearPosts } from '../../../../actions/posts';
 import useStyles from './styles';
 
 const Class = ({ oneClass, currentSubject, currentClass, setCurrentClass, setCurrentQuarter }) => {

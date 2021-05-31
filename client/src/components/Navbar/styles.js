@@ -43,7 +43,12 @@ export default makeStyles((theme) => ({
     color: theme.palette.getContrastText(deepPurple[500]),
     backgroundColor: deepPurple[500],
   },
-  createPostButton: {
-    width: '200px',
+  navButton: {
+    marginRight: '10px',
+    marginLeft: '10px',
+    '&:hover': {
+      color: theme.palette.primary.main,
+      backgroundColor: theme.palette.secondary.main,
+    },
   },
 }));
