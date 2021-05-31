@@ -123,4 +123,14 @@ export const getSpecificPosts = async (req, res) => {
     }
 }
 
+export const searchForPosts = async (req, res) => {
+    const { tags } = req.query;
+    try {
+        const posts = await PostMessage.find({ tags: { $in: tags.split(',') } });
+        res.status(200).json(posts);
+    } catch (error) {    
+        res.status(404).json({ message: error.message });
+    }
+}
+
 export default router;
