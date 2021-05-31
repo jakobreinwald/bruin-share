@@ -1,15 +1,26 @@
 import axios from 'axios';
 
-const url = 'http://localhost:5000/posts';
+const API = axios.create({ baseURL: 'http://localhost:5000' });
 
-export const fetchPosts = () => axios.get(`${url}`);
-export const fetchPostsBySearch = (searchQuery) => axios.get(`${url}/search?tags=${searchQuery}`);
-export const createPost = (newPost) => axios.post(url, newPost);
-export const updatePost = (id, updatedPost) => axios.patch(`${url}/${id}`, updatedPost);
-export const deletePost = (id) => axios.delete(`${url}/${id}`);
-export const likePost = (id) => axios.patch(`${url}/${id}/likePost`);
+API.interceptors.request.use((req) => {
+    if(localStorage.getItem('profile')) {
+        req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`;
+    }
 
-export const getSubjects = () => axios.get(`${url}/subjects`);
-export const getClasses = (subjectId) => axios.get(`${url}/${subjectId}/classes`);
-export const getQuarters = (subjectId, classId) => axios.get(`${url}/${subjectId}/${classId}/quarters`);
-export const getSpecificPosts = (subjectId, classId, quarterId) => axios.get(`${url}/${subjectId}/${classId}/${quarterId}`);
+    return req;
+});
+
+export const fetchPosts = () => API.get(`/posts`);
+export const fetchPostsBySearch = (searchQuery) => API.get(`/posts/search?tags=${searchQuery}`);
+export const createPost = (newPost) => API.post('/posts', newPost);
+export const updatePost = (id, updatedPost) => API.patch(`/posts/${id}`, updatedPost);
+export const deletePost = (id) => API.delete(`/posts/${id}`);
+export const likePost = (id) => API.patch(`/posts/${id}/likePost`);
+
+export const getSubjects = () => API.get(`/posts/subjects`);
+export const getClasses = (subjectId) => API.get(`/posts/${subjectId}/classes`);
+export const getQuarters = (subjectId, classId) => axios.get(`/posts/${subjectId}/${classId}/quarters`);
+export const getSpecificPosts = (subjectId, classId, quarterId) => API.get(`/posts/${subjectId}/${classId}/${quarterId}`);
+
+export const signIn = (formData) => API.post('/user/signin', formData);
+export const signUp = (formData) => API.post('/user/signup', formData);
