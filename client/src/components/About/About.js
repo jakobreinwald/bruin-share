@@ -1,17 +1,75 @@
 import React from 'react';
-import { Grid, Typography } from '@material-ui/core';
+import { Divider, Button } from '@material-ui/core';
+import { createGenerateClassName, Grid, Typography } from '@material-ui/core';
+import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import {Link} from 'react-router-dom'
 import { useSelector } from 'react-redux';
 
 import useStyles from './styles';
 
 const About = ({}) => {
-  const classes = useSelector((state) => state.classes);
-  const styleClasses = useStyles();
+  const classes = useStyles();
 
   return (
-      <Typography>
-          About Page
-      </Typography>
+    <>
+      <div style={{ paddingLeft: 15, paddingBottom: 5 }}>
+        <Typography className={classes.headers}>HOW TO CREATE A POST +</Typography>
+        <Typography className={classes.regular}>
+          To make a post, click the “CREATE A POST” button in the upper right-hand corner of this webpage, and enter the proper information where prompted. To ensure that your information is stored in the right place, see the naming convention below when crafting your submission. This link to UCLA course descriptions is referenced below: 
+        </Typography>
+        <Button className={classes.linkButton}
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            window.open('https://registrar.ucla.edu/academics/course-descriptions');
+            }}> COURSE CATALOG
+        </Button>
+        
+      </div>
+
+      <div style={{ paddingLeft: 75, paddingRight: 385, paddingTop: 5, paddingBottom: 5 }}>
+        <Typography className={classes.miniHeaders}>SUBJECT</Typography>
+        <Typography className={classes.regular}>
+          On the UCLA Course Descriptions site, locate your subject area. Following the same capitalization, enter this into the “Subject” line of the submission form.
+        </Typography>
+      </div>
+      <div style={{ paddingLeft: 75, paddingRight: 385, paddingTop: 5, paddingBottom: 5 }}>
+        <Typography className={classes.miniHeaders}>CLASS</Typography>
+        <Typography className={classes.regular}>
+          After clicking on a subject, you will see a list of classes that start with a short numerical (and sometimes alphabetical) code. Enter this short code into the “Class” line of the submission form.
+        </Typography>
+      </div>
+      <div style={{ paddingLeft: 75, paddingRight: 385, paddingTop: 5, paddingBottom: 30 }}>
+        <Typography className={classes.miniHeaders}>UPLOAD A FILE</Typography>
+        <Typography className={classes.regular}>
+          At the bottom of the form, there is a “Choose File” to upload a PDF file of your notes.
+        </Typography>
+      </div>
+
+      <Divider />
+
+      <div style={{ paddingTop: 30, paddingBottom: 30 }}>
+        <Typography className={classes.headers}>LIKING POSTS <ThumbUpAltIcon fontSize="medium" /> </Typography> 
+        <Typography className={classes.regular}>
+          Users have the ability to like others’ posts using the Thumbs-Up icon.
+        </Typography>
+      </div>
+
+      <Divider />
+
+      <div style={{ paddingTop: 30, paddingBottom: 30 }}>
+        <Typography 
+          className={classes.headers}>VIEW AND DOWNLOAD FROM OTHER POSTS <VisibilityIcon fontSize="medium" /> 
+        </Typography>
+        <Typography className={classes.regular}>
+          Next to the Eye icon is the “View and Download” button, where your browser will navigate you to an outside page to preview and download the selected notes.
+        </Typography>
+      </div>
+
+    </>
+
+    
   );
 };
 
