@@ -6,9 +6,8 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
 
-import { likePost, ShowPDF } from '../../../../actions/posts';
+import { likePost, ShowPDF, deletePost } from '../../../../actions/posts';
 import useStyles from './styles';
-import { deletePost } from '../../../../api';
 
 const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
@@ -37,8 +36,8 @@ const Post = ({ post, setCurrentId }) => {
       </div>
       <div className={classes.overlay2}>
         {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
-          <Button size="small" color="secondary" onClick={() => dispatch(deletePost(post._id))}>
-            <DeleteIcon fontSize="small" />
+          <Button size="small" color="info" onClick={() => dispatch(deletePost(post._id))}>
+            <DeleteIcon fontSize="small" /> Delete
           </Button>
         )} 
       </div>
@@ -53,7 +52,7 @@ const Post = ({ post, setCurrentId }) => {
         <Button size="small" color="secondary" diabled={!user?.result} onClick={() => dispatch(likePost(post._id))}>
           <Likes />
         </Button>
-        <Button size="small" color="secondary" onClick={() => dispatch(ShowPDF(post.selectedFile))}><VisibilityIcon fontSize="small" /> View PDF</Button>
+        <Button size="small" color="secondary" onClick={() => dispatch(ShowPDF(post.selectedFile))}><VisibilityIcon fontSize="small" /> &nbsp; View PDF</Button>
         
       </CardActions>
     </Card>
