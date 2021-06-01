@@ -74,7 +74,7 @@ const About = () => {
           className={classes.headers}>VIEW AND DOWNLOAD FROM OTHER POSTS <VisibilityIcon fontSize="medium" /> 
         </Typography>
         <Typography className={classes.regular}>
-          Next to the Eye icon is the “View and Download” button, where your browser will navigate you to an outside page to preview and download the selected pdf.
+          Next to the Eye icon is the “View PDF” button, where your browser will navigate you to an outside page to preview and download the selected PDF.
         </Typography>
       </div>
 

@@ -53,7 +53,7 @@ const Post = ({ post, setCurrentId }) => {
         <Button size="small" color="secondary" diabled={!user?.result} onClick={() => dispatch(likePost(post._id))}>
           <Likes />
         </Button>
-        <Button size="small" color="secondary" onClick={() => dispatch(ShowPDF(post.selectedFile))}><VisibilityIcon fontSize="small" /> View & Download</Button>
+        <Button size="small" color="secondary" onClick={() => dispatch(ShowPDF(post.selectedFile))}><VisibilityIcon fontSize="small" /> View PDF</Button>
         
       </CardActions>
     </Card>
