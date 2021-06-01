@@ -25,7 +25,13 @@ const Form = ({ currentId, setCurrentId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (currentId === 0) {
+    if (postData.subjectId === "" || postData.classId === "" || postData.year === "" || postData.quarter === "") {
+      alert("Please fill out the subject, class, year and quarter.");
+    } else if (postData.selectedFile === "") {
+      alert("Please choose a file to upload.");
+    } else if (!postData.selectedFile.startsWith("data:application/pdf")) {
+      alert("Selected file must be a PDF.");
+    } else if (currentId === 0) {
       dispatch(createPost({ ...postData, name: user?.result?.name }));
       clear();
     } else {
