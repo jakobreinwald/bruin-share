@@ -2,12 +2,13 @@ import React from 'react';
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core/';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import VisibilityIcon from '@material-ui/icons/Visibility';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import DeleteIcon from '@material-ui/icons/Delete';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
 
 import { likePost, ShowPDF } from '../../../../actions/posts';
 import useStyles from './styles';
+import { deletePost } from '../../../../api';
 
 const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
@@ -35,7 +36,11 @@ const Post = ({ post, setCurrentId }) => {
         <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
       </div>
       <div className={classes.overlay2}>
-        <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(post._id)}><MoreHorizIcon fontSize="default" /></Button>
+        {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
+          <Button size="small" color="secondary" onClick={() => dispatch(deletePost(post._id))}>
+            <DeleteIcon fontSize="small" />
+          </Button>
+        )} 
       </div>
       <div className={classes.details}>
         <Typography variant="body2" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
