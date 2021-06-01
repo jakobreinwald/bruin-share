@@ -12,6 +12,20 @@ import useStyles from './styles';
 const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
+  const user = JSON.parse(localStorage.getItem('profile'));
+
+  const Likes = () => {
+    if (post.likes.length > 0) {
+      return post.likes.find((like) => like === (user?.result?.googleId || user?.result?._id))
+        ? (
+          <><ThumbUpAltIcon fontSize="small" />&nbsp;{post.likes.length > 2 ? `You and ${post.likes.length - 1} others` : `${post.likes.length} like${post.likes.length > 1 ? 's' : ''}` }</>
+        ) : (
+          <><ThumbUpAltIcon fontSize="small" />&nbsp;{post.likes.length} {post.likes.length === 1 ? 'Like' : 'Likes'}</>
+        );
+    }
+
+    return <><ThumbUpAltIcon fontSize="small" />&nbsp;Like</>;
+  };
 
   return (
     <Card className={classes.card}>
@@ -31,7 +45,9 @@ const Post = ({ post, setCurrentId }) => {
         <Typography variant="body2" component="p">{post.message}</Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
-        <Button size="small" color="secondary" onClick={() => dispatch(likePost(post._id))}><ThumbUpAltIcon fontSize="small" /> Like {post.likeCount} </Button>
+        <Button size="small" color="secondary" diabled={!user?.result} onClick={() => dispatch(likePost(post._id))}>
+          <Likes />
+        </Button>
         <Button size="small" color="secondary" onClick={() => dispatch(ShowPDF(post.selectedFile))}><VisibilityIcon fontSize="small" /> View & Download</Button>
         
       </CardActions>
