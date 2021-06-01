@@ -8,6 +8,6 @@ export default makeStyles((theme) => ({
         padding: '16px',
   },
   searchButton: {
-
+    color: 'white',
   },
 }));

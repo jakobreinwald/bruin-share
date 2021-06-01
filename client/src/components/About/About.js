@@ -26,22 +26,29 @@ const About = () => {
         
       </div>
 
+
+      <div style={{ paddingLeft: 75, paddingRight: 385, paddingTop: 5, paddingBottom: 5 }}>
+        <Typography className={classes.miniHeaders}>FEATURED CONCEPTS</Typography>
+        <Typography className={classes.regular}>
+          Users may add the concepts that are discussed in their uploaded notes. Separate these concepts with just a comma, no space.
+        </Typography>
+      </div>
       <div style={{ paddingLeft: 75, paddingRight: 385, paddingTop: 5, paddingBottom: 5 }}>
         <Typography className={classes.miniHeaders}>SUBJECT</Typography>
         <Typography className={classes.regular}>
-          On the UCLA Course Descriptions site, locate your subject area. Following the same capitalization, enter this into the “Subject” box of the submission form.
+          On the UCLA Course Descriptions site, locate your subject area. Enter this subject in ALL CAPS into the “Subject” box of the submission form.
         </Typography>
       </div>
       <div style={{ paddingLeft: 75, paddingRight: 385, paddingTop: 5, paddingBottom: 5 }}>
         <Typography className={classes.miniHeaders}>CLASS</Typography>
         <Typography className={classes.regular}>
-          After clicking on a subject, you will see a list of classes that start with a short numerical (and sometimes alphabetical) code. Enter this short code into the “Class” box of the submission form.
+          After clicking on a subject in the Course Catalog, you will see a list of classes that start with a short numerical (and sometimes alphabetical) code. Enter this short code into the “Class” box of the submission form, with the letters in ALL CAPS.
         </Typography>
       </div>
       <div style={{ paddingLeft: 75, paddingRight: 385, paddingTop: 5, paddingBottom: 5 }}>
         <Typography className={classes.miniHeaders}>YEAR AND QUARTER</Typography>
         <Typography className={classes.regular}>
-          For the "Year" box, enter the 4-digit year you took the class. For the "Quarter" box, enter the UCLA quarter you took the class: Fall, Winter, Spring, or Summer.
+          For the "Year" box, enter the 4-digit year you took the class. For the "Quarter" box, enter the UCLA quarter you took the class in ALL CAPS: FALL, WINTER, SPRING, or SUMMER.
         </Typography>
       </div>
       <div style={{ paddingLeft: 75, paddingRight: 385, paddingTop: 5, paddingBottom: 30 }}>
