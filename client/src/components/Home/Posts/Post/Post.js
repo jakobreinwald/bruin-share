@@ -36,7 +36,7 @@ const Post = ({ post, setCurrentId }) => {
       </div>
       <div className={classes.overlay2}>
         {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
-          <Button size="small" color="info" onClick={() => dispatch(deletePost(post._id))}>
+          <Button className={classes.deleteButton} size="small" color="secondary" onClick={() => dispatch(deletePost(post._id))}>
             <DeleteIcon fontSize="small" /> Delete
           </Button>
         )} 

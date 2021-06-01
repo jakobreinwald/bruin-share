@@ -58,10 +58,10 @@ const Form = ({ currentId, setCurrentId }) => {
         <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} />
         <TextField name="message" variant="outlined" label="Comments" fullWidth multiline rows={4} value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })} />
         <TextField name="tags" variant="outlined" label="Featured Concepts (comma separated)" fullWidth value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })} />
-        <TextField name="title" variant="outlined" label="Subject" fullWidth value={postData.subjectId} onChange={(e) => setPostData({ ...postData, subjectId: e.target.value })} />
-        <TextField name="title" variant="outlined" label="Class" fullWidth value={postData.classId} onChange={(e) => setPostData({ ...postData, classId: e.target.value })} />
-        <TextField name="title" variant="outlined" label="Year" fullWidth value={postData.year} onChange={(e) => setPostData({ ...postData, year: e.target.value })} />
-        <TextField name="title" variant="outlined" label="Quarter" fullWidth value={postData.quarter} onChange={(e) => setPostData({ ...postData, quarter: e.target.value })} />
+        <TextField name="title" variant="outlined" label="Subject (ALL CAPS)" fullWidth value={postData.subjectId} onChange={(e) => setPostData({ ...postData, subjectId: e.target.value })} />
+        <TextField name="title" variant="outlined" label="Class (ALL CAPS)" fullWidth value={postData.classId} onChange={(e) => setPostData({ ...postData, classId: e.target.value })} />
+        <TextField name="title" variant="outlined" label="Year (four digit)" fullWidth value={postData.year} onChange={(e) => setPostData({ ...postData, year: e.target.value })} />
+        <TextField name="title" variant="outlined" label="Quarter (ALL CAPS)" fullWidth value={postData.quarter} onChange={(e) => setPostData({ ...postData, quarter: e.target.value })} />
         <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
         <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
         <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
