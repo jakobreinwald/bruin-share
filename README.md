@@ -12,23 +12,29 @@ Alternatively, if you want to run the app locally, follow the instructions in th
 
 # Brief Project Details
 
-The project was made using MongoDB, Express.js, React.js, and Node.js. All of our user and post data is stored in a MongoDB database. This project was also built with the React Redux and Material UI libraries. The backend of this application is deployed using Heroku, and the frontend is deployed using Netlify. Additionally, this app is mobile friendly and will work on all devices, including both computers and phones! 
+The project was made using [MongoDB](https://www.mongodb.com), [Express.js](https://expressjs.com), [React.js](https://reactjs.org), and [Node.js](https://nodejs.org/en/). All of our user and post data is stored in a MongoDB database. This project was also built with the [React Redux](https://react-redux.js.org) and [Material UI](https://material-ui.com) libraries. The backend of this application is deployed using [Heroku](https://dashboard.heroku.com/apps), and the frontend is deployed using [Netlify](https://www.netlify.com). Additionally, this app is mobile friendly and will work on all devices, including both computers and phones! 
 
-Users can find a more detailed description of app functionality and information in the [About section of the site](https://bruin-share-notes.netlify.app/about)
+Users can find a more detailed description of app functionality and information in the About section of the site.
 
 # Running the App Locally
 
-First, clone the repository and install the required dependencies by running the following commands:
+First, clone the repository. and install the required dependencies by running the following commands:
 ```
 git clone https://github.com/jakobreinwald/bruin-share.git
-cd server
+```
+
+The, cd into the folder created and install the required dependencies.
+```
+cd bruin-share/client
 npm install
-cd ../client
+cd ../server
 npm install
 ```
 
 To start the app, both the server and client sides need to be running at once. We provided a script for doing exactly so in the server side directory, so all you need to do after cloning and installing dependencies is stay in the server directory and run the following command:
-```npm run dev```
+```
+npm run dev
+```
 
 After that, the entire app and functionality will appear in your browser!
 
