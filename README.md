@@ -45,7 +45,10 @@ To start the app, both the server and client sides need to be running at once. W
 ```
 npm run dev
 ```
-
+You can also do the same thing using yarn:
+```
+yarn run dev
+```
 After that, the entire app and functionality will appear in your browser!
 
 
