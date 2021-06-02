@@ -1,6 +1,5 @@
 body {
-    background-color: #ffffff;
-    background-image: url("https://wallpaperaccess.com/full/449940.jpg");
+    background: linear-gradient(to bottom, #8BB8E8, white 50%);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: top left;

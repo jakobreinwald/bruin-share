@@ -29,7 +29,7 @@ const Post = ({ post, setCurrentId }) => {
 
   return (
     <Card className={classes.card}>
-      <CardMedia className={classes.media} image={ 'http://michelleogundehin.com/wp-content/uploads/2018/04/Lamplighter-%C2%A332.98-per-2.5-litre-flat-emulsion.png'} title={post.title} />
+      <CardMedia className={classes.media} style={{backgroundColor: "#edc73e"}} title={post.title} />
       <div className={classes.overlay}>
         <Typography variant="h6">{post.name}</Typography>
         <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
