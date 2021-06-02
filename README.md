@@ -6,13 +6,16 @@ Currently being developed by Jakob Reinwald, Quyen Ngo, Alan Nguyen, and Matthew
 # Using the App
 
 Bruin Share is currently deployed and is ready for use at the following link!
+
 [https://bruin-share-notes.netlify.app](https://bruin-share-notes.netlify.app)
+
+Users will be able to view and download all posts without creating or logging in to an account. In order to make posts of their own and like others' posts, users can create an account with Bruin Share, or log in using their Google account! (Note: for mobile users logging in through their Google account, we recommend using Chrome instead of Safari).
 
 Alternatively, if you want to run the app locally, follow the instructions in the [Running the App Locally](#Running-the-App-Locally) section of this README.
 
 # Brief Project Details
 
-The project was made using [MongoDB](https://www.mongodb.com), [Express.js](https://expressjs.com), [React.js](https://reactjs.org), and [Node.js](https://nodejs.org/en/). All of our user and post data is stored in a MongoDB database. This project was also built with the [React Redux](https://react-redux.js.org) and [Material UI](https://material-ui.com) libraries. The backend of this application is deployed using [Heroku](https://dashboard.heroku.com/apps), and the frontend is deployed using [Netlify](https://www.netlify.com). Additionally, this app is mobile friendly and will work on all devices, including both computers and phones! 
+The project was made using [MongoDB](https://www.mongodb.com), [Express.js](https://expressjs.com), [React.js](https://reactjs.org), and [Node.js](https://nodejs.org/en/). All of our user and post data is stored in a MongoDB database. This project was also built with the [React Redux](https://react-redux.js.org) and [Material UI](https://material-ui.com) libraries. The backend of this application is deployed using [Heroku](https://dashboard.heroku.com/apps), and the frontend is deployed using [Netlify](https://www.netlify.com). Additionally, this app is mobile friendly and will work on all devices, including both computers and phones!
 
 Users can find a more detailed description of app functionality and information in the About section of the site.
 
