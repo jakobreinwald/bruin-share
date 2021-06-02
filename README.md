@@ -33,8 +33,15 @@ npm install
 cd ../server
 npm install
 ```
+Now, in order to access the database properly, we have to create a dotenv file. Using the same format as the file ".env.example" in the server directory, create a file called ".env" in server, and add the following information to it.
+```
+PORT = 5000
+CONNECTION_URL = mongodb+srv://public:public@cluster0.9wa15.mongodb.net/bruin-share?retryWrites=true&w=majority
+```
+Normally, you would not have access to the database collections, but we provided access to a public user with username "public" and password "public" (as can be seen in the connection url string).
 
-To start the app, both the server and client sides need to be running at once. We provided a script for doing exactly so in the server side directory, so all you need to do after cloning and installing dependencies is stay in the server directory and run the following command:
+
+To start the app, both the server and client sides need to be running at once. We provided a script for doing exactly so in the server side directory, so all you need to do after cloning, installing dependencies, and accessing the database is stay in the server directory and run the following command:
 ```
 npm run dev
 ```
