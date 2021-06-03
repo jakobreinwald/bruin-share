@@ -12,16 +12,6 @@ export const getPosts = () => async (dispatch) => {
     }
 }
 
-export const searchForPosts = (searchQuery) => async (dispatch) => {
-    try {
-      const { data } = await api.fetchPostsBySearch(searchQuery);
-      
-      dispatch({ type: SEARCH, payload: data });
-    } catch (error) {
-      console.log(error);
-    }
-}
-
 export const createPost = (post) => async (dispatch) => {
     try {
         const { data } = await api.createPost(post);
@@ -115,12 +105,10 @@ export const clearQuarters = () => async (dispatch) => {
     }
 }
 
-// helper function for ShowPDF
-const convertFromBase64 = (str) => {
-    // Cut the prefix `data:application/pdf;base64` from the raw base 64
-    const dataWithoutPrefix = str.substr('data:application/pdf;base64,'.length);
+const convertBase64 = (str) => {
+    const noPrefix = str.substr('data:application/pdf;base64,'.length);
 
-    const bytes = atob(dataWithoutPrefix);
+    const bytes = atob(noPrefix);
     let length = bytes.length;
     let out = new Uint8Array(length);
 
@@ -136,11 +124,21 @@ export const ShowPDF = (file) => async () => {
         if (file === "") { 
             alert("No PDF file to open!");
         } else {
-            const blob = convertFromBase64(file);
+            const blob = convertBase64(file);
             const url = URL.createObjectURL(blob);
             window.open(url);
         }
     } catch(error) { 
         console.log(error);
+    }
+}
+
+export const searchForPosts = (searchQuery) => async (dispatch) => {
+    try {
+      const { data } = await api.fetchPostsBySearch(searchQuery);
+      
+      dispatch({ type: SEARCH, payload: data });
+    } catch (error) {
+      console.log(error);
     }
 }
